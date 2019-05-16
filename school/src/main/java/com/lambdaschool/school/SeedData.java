@@ -1,7 +1,7 @@
 package com.lambdaschool.school;
 
-import com.lambdaschool.school.model.*;
-import com.lambdaschool.school.repository.*;
+import com.lambdaschool.school.models.*;
+import com.lambdaschool.school.daos.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,15 +13,15 @@ import java.util.Arrays;
 @Component
 public class SeedData implements CommandLineRunner {
 
-    private UserRepository userrepo;
-    private RoleRepository rolerepo;
+    private UserDao userrepo;
+    private RoleDao rolerepo;
 
-    private InstructorRepository insrepo;
-    private CourseRepository courserepo;
-    private StudentRepository studentrepo;
+    private InstructorDao insrepo;
+    private CourseDao courserepo;
+    private StudentDao studentrepo;
 
-    public SeedData(UserRepository userrepo, RoleRepository rolerepo,
-            InstructorRepository insrepo, CourseRepository courserepo, StudentRepository studentrepo) {
+    public SeedData(UserDao userrepo, RoleDao rolerepo,
+            InstructorDao insrepo, CourseDao courserepo, StudentDao studentrepo) {
         this.userrepo = userrepo;
         this.rolerepo = rolerepo;
         this.insrepo = insrepo;
@@ -31,17 +31,25 @@ public class SeedData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // create users
+        // create Roles
         Role role1 = new Role("user");
+        Role role2 = new Role("ADMIN");
+        rolerepo.saveAll(Arrays.asList(role1, role2));
+
+        // set up userRoles
+        ArrayList<UserRoles> admins = new ArrayList<>();
+        admins.add(new UserRoles(new User(), role1));
+        admins.add(new UserRoles(new User(), role2));
+
         ArrayList<UserRoles> users = new ArrayList<>();
         users.add(new UserRoles(new User(), role1));
-        rolerepo.save(role1);
 
-        User u1 = new User("admin", "password", users);
-        userrepo.save(u1);
+        // create users
+        User u1 = new User("admin", "password", admins);
+        User u2 = new User("josh", "josh", users);
+        userrepo.saveAll(Arrays.asList(u1, u2));
 
         // create Instructors and classes
-
         Instructor ins1 = new Instructor("Hard Knocks");
         Course c1 = new Course("Life", ins1);
 

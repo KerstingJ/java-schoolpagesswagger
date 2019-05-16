@@ -18,6 +18,7 @@ public class HerokuDatabaseConfig
 //    @Bean
 //    public DataSource dataSource()
 //    {
+//        String dbUrl = System.getenv("JDBC_DATABASE_URL");
 //        HikariConfig config = new HikariConfig();
 //        config.setJdbcUrl(dbUrl);
 //        return new HikariDataSource(config);
