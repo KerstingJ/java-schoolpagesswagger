@@ -1,6 +1,6 @@
-package com.lambdaschool.school.service;
+package com.lambdaschool.school.services;
 
-import com.lambdaschool.school.model.Student;
+import com.lambdaschool.school.models.Student;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;

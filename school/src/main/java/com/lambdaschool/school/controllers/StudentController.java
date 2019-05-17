@@ -1,7 +1,7 @@
-package com.lambdaschool.school.controller;
+package com.lambdaschool.school.controllers;
 
-import com.lambdaschool.school.model.Student;
-import com.lambdaschool.school.service.StudentService;
+import com.lambdaschool.school.models.Student;
+import com.lambdaschool.school.services.StudentService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;

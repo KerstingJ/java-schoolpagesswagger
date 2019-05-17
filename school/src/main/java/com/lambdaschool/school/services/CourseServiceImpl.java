@@ -1,7 +1,7 @@
-package com.lambdaschool.school.service;
+package com.lambdaschool.school.services;
 
-import com.lambdaschool.school.model.Course;
-import com.lambdaschool.school.repository.CourseRepository;
+import com.lambdaschool.school.models.Course;
+import com.lambdaschool.school.daos.CourseDao;
 import com.lambdaschool.school.view.CountStudentsInCourses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class CourseServiceImpl implements CourseService
 {
     @Autowired
-    private CourseRepository courserepos;
+    private CourseDao courserepos;
 
     @Override
     public ArrayList<Course> findAll()

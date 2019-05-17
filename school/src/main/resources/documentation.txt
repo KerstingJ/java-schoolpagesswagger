@@ -1,0 +1,10 @@
+curl -X GET http://joshk-deploy.herokuapp.com/courses/courses
+
+curl -X POST http://joshk-deploy.herokuapp.com/oauth/token --user “lambda-client:lambda-secret” -d “grant_type=password&username=admin&password=password”
+curl -X GET http://localhost:2019/actuator -H “Accept: application/json” -H “Authorization: Bearer 4bf3e613-b1c6-4ee8-9661-df0c42e9dfe6”
+
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer 50621c2d-ec6c-4edc-9995-785bd18c5556" -d "{ \"username\":\"snoopy\",word\":\"password\", \"role\":\"admin\" }" http://localhost:8443/users/user
+
+
+
+curl -X POST http://localhost:2019/oauth/token --user “lambda-client:lambda-secret” -d “grant_type=password&username=admin&password=password”

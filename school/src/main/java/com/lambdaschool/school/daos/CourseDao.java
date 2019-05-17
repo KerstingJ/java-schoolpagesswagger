@@ -1,15 +1,14 @@
-package com.lambdaschool.school.repository;
+package com.lambdaschool.school.daos;
 
-import com.lambdaschool.school.model.Course;
+import com.lambdaschool.school.models.Course;
 import com.lambdaschool.school.view.CountStudentsInCourses;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public interface CourseRepository extends CrudRepository<Course, Long>
+public interface CourseDao extends CrudRepository<Course, Long>
 {
     ArrayList<Course> findCoursesByCoursenameEquals(String name);
 

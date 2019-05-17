@@ -1,6 +1,6 @@
-package com.lambdaschool.school.service;
+package com.lambdaschool.school.services;
 
-import com.lambdaschool.school.model.Course;
+import com.lambdaschool.school.models.Course;
 import com.lambdaschool.school.view.CountStudentsInCourses;
 
 import java.util.ArrayList;
